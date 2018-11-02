@@ -24,7 +24,7 @@ class CreateBooksTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('condition');
-            $table->integer('year',4);
+            $table->integer('year');
             $table->string('exchange_preferences');
             $table->string('exchange_status');
             $table->integer('view');
