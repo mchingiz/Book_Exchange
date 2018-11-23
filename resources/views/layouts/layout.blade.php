@@ -21,13 +21,14 @@
     <link rel="stylesheet" href="/css/book-card.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/comments.css">
+    <link rel="stylesheet" href="/css/login.css">
 
     
   </head>
   <body>
   
   <div class="site-wrap">
-
+    
     <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -220,6 +221,7 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/book-card.js"></script>
-    
+  <script src="js/closeBox.js"></script>
+
   </body>
 </html>

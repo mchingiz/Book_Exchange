@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="unit-5 overlay" style="background-image: url('images/hero_bg_2.jpg');">
+<div class="unit-5 overlay" style="background-image: url('https://www.helperhelper.com/wp-content/uploads/2015/10/bigstock-Stack-Of-Books-70033240.jpg');">
       <div class="container text-center">
         <h2 class="mb-0">About</h2>
         <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>About</span></p>
@@ -19,7 +19,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-12 mb-5" data-aos="fade">
-            <img src="images/img_1.jpg" class="img-md-fluid" alt="Placeholder image">
+            <img src="https://colorlib.com/preview/theme/jobstart/images/img_1.jpg" class="img-md-fluid" alt="Placeholder image">
           </div>
           <div class="col-lg-6 col-md-12">
             <div class="bg-white pl-lg-5 pl-0  pb-lg-5 pb-0">
@@ -219,7 +219,7 @@
     </div>
 
     
-    <div class="site-blocks-cover" style="background-image: url(images/hero_bg_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover" style="background-image: url(https://www.chroniclebooks.com/blog/wp-content/uploads/books-1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row row-custom align-items-center">
           <div class="col-md-10">

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="unit-5 overlay" style="background-image: url('images/hero_bg_2.jpg');">
+    <div class="unit-5 overlay" style="background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1fd72b80aa0b43f74015163c2ad6fcc5&w=1000&q=80');">
       <div class="container text-center">
         <h2 class="mb-0">Blog</h2>
         <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Blog</span></p>
