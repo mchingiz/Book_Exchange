@@ -1,0 +1,44 @@
+.register {
+  display: none;
+  height: 0px;
+  opacity: 0;
+}
+p {
+  margin-bottom: 0px;
+}
+.login,
+.register {
+  position: relative;
+}
+.goToLogin {
+  position: absolute;
+  bottom: 37px;
+  right: 49px;
+}
+.goToRegister {
+  position: absolute;
+  bottom: 65px;
+  right: 65px;
+}
+.login input {
+  margin: 5px 0px;
+}
+.login form {
+  padding: 25px 30px 20px 30px !important;
+  border-radius: 5px;
+}
+.goTo h5,
+.goTo p {
+  color: cadetblue;
+  cursor: pointer;
+}
+.register label {
+  padding-top: 4px;
+}
+
+@media (min-width: 768px) {
+  .site-section {
+    padding: 5em 0;
+    padding-bottom: 3em;
+  }
+}

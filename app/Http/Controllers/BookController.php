@@ -117,4 +117,7 @@ class BookController extends Controller
         return redirect('books');
     }
 
+    public function test(){
+        return view('about');
+    }
 }
