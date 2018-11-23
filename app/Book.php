@@ -14,10 +14,18 @@ class Book extends Model
     }
 
     public function category(){
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
+    }
+
+    public function image(){
+        return $this->hasMany(Image::class);
     }
 
     public function city(){
-        return $this->hasOne(City::class);
+        return $this->belongsTo(City::class);
+    }
+
+    public function offers(){
+        return $this->hasMany(Offer::class,'offered_to_book_id');
     }
 }

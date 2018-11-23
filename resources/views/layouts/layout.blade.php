@@ -220,6 +220,9 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/book-card.js"></script>
+
+     @yield('scripts')
+
     
   </body>
 </html>

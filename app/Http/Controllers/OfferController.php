@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Book;
+use App\Offer;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
 
-class BookController extends Controller
+class OfferController extends Controller
 {
 
     /**
@@ -20,9 +20,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $offers = Offer::all();
 
-        return view('backEnd.book.books.index', compact('books'));
+        return view('backEnd.offer.offers.index', compact('offers'));
     }
 
     /**
@@ -32,7 +32,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('backEnd.book.books.create');
+        return view('backEnd.offer.offers.create');
     }
 
     /**
@@ -43,12 +43,20 @@ class BookController extends Controller
     public function store(Request $request)
     {
         
-        Book::create($request->all());
+       
 
-        Session::flash('message', 'Book added!');
+        $offer = new Offer;
+
+        $offer->offered_book_id = $request->offered_book;
+        $offer->offered_to_book_id = $request->offered_to_book;
+        $offer->status = 0;
+
+        $offer->save();
+
+        Session::flash('message', 'Offer added!');
         Session::flash('status', 'success');
 
-        return redirect('books');
+        return redirect('book/'.$request->offered_to_book);
     }
 
     /**
@@ -60,9 +68,9 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $book = Book::findOrFail($id);
+        $offer = Offer::findOrFail($id);
 
-        return view('single_book',compact('book'));
+        return view('backEnd.offer.offers.show', compact('offer'));
     }
 
     /**
@@ -74,9 +82,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::findOrFail($id);
+        $offer = Offer::findOrFail($id);
 
-        return view('backEnd.book.books.edit', compact('book'));
+        return view('backEnd.offer.offers.edit', compact('offer'));
     }
 
     /**
@@ -89,13 +97,13 @@ class BookController extends Controller
     public function update($id, Request $request)
     {
         
-        $book = Book::findOrFail($id);
-        $book->update($request->all());
+        $offer = Offer::findOrFail($id);
+        $offer->update($request->all());
 
-        Session::flash('message', 'Book updated!');
+        Session::flash('message', 'Offer updated!');
         Session::flash('status', 'success');
 
-        return redirect('books');
+        return redirect('offers');
     }
 
     /**
@@ -107,18 +115,14 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        $book = Book::findOrFail($id);
+        $offer = Offer::findOrFail($id);
 
-        $book->delete();
+        $offer->delete();
 
-        Session::flash('message', 'Book deleted!');
+        Session::flash('message', 'Offer deleted!');
         Session::flash('status', 'success');
 
-        return redirect('books');
+        return redirect('offers');
     }
 
-    public function test($id){
-        $book = Book::findOrFail($id);
-        return view('single_book',compact('book'));
-    }
 }
