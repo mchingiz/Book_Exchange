@@ -11,70 +11,104 @@
         <h2 class="mb-0">Kitab əlavə et</h2>
         <p class="mb-0 unit-6"><a href="index.html">Əsas səhifə</a> <span class="sep">></span> <span>Kitab əlavə et</span></p>
       </div>
-    </div>
-
-    
-    
+    </div>  
 
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
        
-          <div class="col-md-12 col-lg-8 mb-5">
+          <div class="col-md-12 col-lg-8 mb-5">          
+
+            @if($errors->any())
+              <div class="alert alert-danger" role="alert">
+                  <ol>
+                      @foreach($errors->all() as $error)
+                          <li> {{ $error }} </li>
+                      @endforeach
+                  </ol>
+              </div>
+            @endif
+
+            <br>
+
+            @if(Session::has('message'))
+              <div class="alert alert-success"> {{Session::get('message')}} </div>
+            @endif
+
           
-            
-          
-            <form action="#" class="p-5 bg-white">
-              
+            <form action="{{route('store_book')}}" method="post" enctype="multipart/form-data" class="p-5 bg-white">
+
+              {{ csrf_field() }}
+
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="bookname">Kitabın adı</label>
-                  <input type="text" id="bookname" class="form-control" placeholder="məs: 451 Farenheit">
+                  <input type="text" id="bookname" name="book_name" class="form-control" placeholder="məs: 451 Farenheit" >
                 </div>
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="author">Müəllif</label>
-                  <input type="text" id="author" class="form-control" placeholder="məs: Ray Bradbury">
+                  <input type="text" id="author" name="book_author" class="form-control" placeholder="məs: Ray Bradbury" >
                 </div>
-              </div>            
-
-              <!-- <div class="row form-group mb-5">
-              </div> -->
-
+              </div>  
 
               <div class="row form-group">
-                <div class="col-md-12"><h6>Dəyişmə müddəti</h6></div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-1">
-                    <input type="radio" id="option-job-type-1" name="job-type"> Müvəqqəti
-                  </label>
-                </div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-2">
-                    <input type="radio" id="option-job-type-2" name="job-type"> Daimi
-                  </label>
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="book_cat">Kitabın kategoriyası</label>
+                  <select name="book_cat" id="book_cat" class="form-control" >
+                    @foreach($categories as $cat)
+                      <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                    @endforeach
+
+                  </select>
                 </div>
 
-              </div>
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="book_condition">Kitabın vəziyyəti</label>
+                  <select name="book_condition" id="book_condition" class="form-control" >
+                    @foreach($conditions as $c)
+                      <option value="{{$c}}">{{$c}}</option>
+                    @endforeach
 
-              <div class="row form-group mb-4">
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="place">Uyğun məkanlar</label>
-                  <input type="text" class="form-control" id="place" placeholder="Bakı, Sumqayıt və s.">
+                  </select>
                 </div>
-              </div>
+              </div>    
+
+              <div class="row form-group">
+                <div class="col-md-8 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="book_city">Şəhər</label>
+                  <select name="book_city" id="book_city" class="form-control" >
+                    @foreach($cities as $c)
+                      <option value="{{$c->id}}">{{ $c->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="book_year">Kitabın ili</label>
+                  <input type="number" min="1500" max="2018" class="form-control" id="book_year" name="book_year" value="1500" >
+                </div>
+              </div>        
 
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                     <label class="font-weight-bold" for="aboutBook">Kitab haqqında</label>
-                  <textarea name="" class="form-control" id="aboutBook" cols="30" rows="5"></textarea>
+                  <textarea name="book_desc" class="form-control" id="aboutBook" cols="30" rows="5" ></textarea>
                 </div>
               </div>
+
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                    <label class="font-weight-bold" for="book_pref">Üstünlüklər</label>
+                  <textarea name="book_pref" class="form-control" id="book_pref" cols="30" rows="5" ></textarea>
+                </div>
+              </div>
+
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="photo">Kitabın fotosu</label>
-                  <input type="file" id="photo">
+                  <input type="file" id="photo" name="book_photo" accept="image/*" >
                 </div>
               </div>
+
               <div class="row form-group">
                 <div class="col-md-12">
                   <input type="submit" value="Paylaş" class="btn btn-primary  py-2 px-5">

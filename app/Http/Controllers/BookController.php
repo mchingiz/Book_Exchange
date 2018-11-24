@@ -6,6 +6,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Book;
+use App\User;
+use App\Image;
+use App\Category;
+use App\City;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
@@ -32,7 +36,13 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('backEnd.book.books.create');
+        $conditions = ["Əla","Yaxşı","Orta","Pis","Bərbad"];
+
+        $categories = Category::all();
+
+        $cities = City::all();
+
+        return view('book.addBook',compact('categories','conditions','cities'));
     }
 
     /**
@@ -42,13 +52,57 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        
-        Book::create($request->all());
+        $this->validate($request,[
+            'book_name' => 'required',
+            'book_author' => 'required',
+            'book_desc' => 'required|',
+            'book_photo' => 'required|image|mimes:jpeg,png,jpg'
+        ]);
 
-        Session::flash('message', 'Book added!');
-        Session::flash('status', 'success');
+        if($request->hasFile('book_photo')){
+            $book_photo = Carbon::now()->toDateString() . '_' . request('book_photo')->getClientOriginalName();
+            $folder = public_path() . '\Upload\book\\';
 
-        return redirect('books');
+            request('book_photo')->move($folder, $book_photo);
+        }
+
+        if(auth()->check()){
+            $book_pref = request('book_pref');
+
+            if(strlen(request('book_pref')) == 0){
+                $book_pref= "";
+            }
+
+            $book = Book::create([
+                'user_id' => auth()->id(),
+                'category_id' => request('book_cat'),
+                'city_id' => request('book_city'),
+                'author' => request('book_author'),
+                'name' => request('book_name'),
+                'description' => request('book_desc'),
+                'condition' => request('book_condition'),
+                'year' => request('book_year'),
+                'exchange_preferences' => $book_pref,
+                'exchange_status' => '0',
+                'view' => 0
+            ]);
+
+            Image::create([
+                'book_id' => $book->id,
+                'source' => $book_photo
+
+            ]);
+
+            SESSION::FLASH('message', 'BOOK ADDED!');
+            SESSION::FLASH('status', 'SUCCESS');
+        }
+
+        return redirect()->back();
+    }
+
+    public function profile(User $user){
+
+        return view('profile',compact('user'));
     }
 
     /**
@@ -62,7 +116,7 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
 
-        return view('backEnd.book.books.show', compact('book'));
+        return view('single_book',compact('book'));
     }
 
     /**
@@ -117,7 +171,8 @@ class BookController extends Controller
         return redirect('books');
     }
 
-    public function test(){
-        return view('contact');
+    public function test($id){
+        $book = Book::findOrFail($id);
+        return view('single_book',compact('book'));
     }
 }
