@@ -59,8 +59,14 @@
                 </li>
                 <li><a href="about.html">Haqqımızda</a></li>
                 <li><a href="contact.html">Əlaqə</a></li>
-                <li><a href="login.html">Daxil ol</a></li>
-                <li><a href="new-post.html"><span class="rounded bg-primary py-2 px-3 text-white"><span class="h5 mr-2">+</span> Kitab əlavə et</span></a></li>
+                @guest
+                <li><a href="{{ route('login') }}">Daxil ol</a></li>
+
+                @else
+                <li><a href="{{ route('user_profile',Auth::user() ) }}">{{ strtoupper(Auth::user()->name) }}</a></li>
+                <li><a href="{{ route('add_book') }}"><span class="rounded bg-primary py-2 px-3 text-white"><span class="h5 mr-2">+</span> Kitab əlavə et</span></a></li>
+                @endguest
+
               </ul>
             </nav>
           </div>
@@ -81,7 +87,7 @@
               <div class="col-6 col-md-4 col-lg-4 mb-5 mb-lg-0">
                 <h3 class="footer-heading mb-4">İstifadəçilər</h3>
                 <ul class="list-unstyled">
-                  <li><a href="#">Daxil ol</a></li>
+                  <li><a href="">Daxil ol</a></li>
                   <li><a href="#">Qeydiyyatdan keç</a></li>
                   <li><a href="#">Profilim</a></li>
                 </ul>

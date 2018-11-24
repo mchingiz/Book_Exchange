@@ -92,52 +92,75 @@
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="bookname">Kitabın adı</label>
-                  <input type="text" id="bookname" class="form-control" placeholder="məs: 451 Farenheit">
+                  <input type="text" id="bookname" name="book_name" class="form-control" placeholder="məs: 451 Farenheit">
                 </div>
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="author">Müəllif</label>
-                  <input type="text" id="author" class="form-control" placeholder="məs: Ray Bradbury">
+                  <input type="text" id="author" name="book_author" class="form-control" placeholder="məs: Ray Bradbury">
                 </div>
-              </div>            
-
-              <!-- <div class="row form-group mb-5">
-              </div> -->
-
+              </div>  
 
               <div class="row form-group">
-                <div class="col-md-12"><h6>Dəyişmə müddəti</h6></div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-1">
-                    <input type="radio" id="option-job-type-1" name="job-type"> Müvəqqəti
-                  </label>
-                </div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-2">
-                    <input type="radio" id="option-job-type-2" name="job-type"> Daimi
-                  </label>
-                </div>
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="book_cat">Kitabın kategoriyası</label>
+                  <select name="book_cat" id="book_cat" class="form-control" >
+                    <option value="">A</option>
+                    <option value="">B</option>
+                    <option value="">C</option>
+                    <option value="">D</option>
 
-              </div>
-
-              <div class="row form-group mb-4">
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="place">Uyğun məkanlar</label>
-                  <input type="text" class="form-control" id="place" placeholder="Bakı, Sumqayıt və s.">
+                  </select>
                 </div>
-              </div>
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="book_condition">Kitabın vəziyyəti</label>
+                  <select name="book_condition" id="book_condition" class="form-control" >
+                    <option value="Əla">Əla</option>
+                    <option value="Yaxşı">Yaxşı</option>
+                    <option value="Orta">Orta</option>
+                    <option value="Pis">Pis</option>
+                    <option value="Bərbad">Bərbad</option>
+
+                  </select>
+                </div>
+              </div>    
+
+              <div class="row form-group">
+                <div class="col-md-8 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="book_city">Şəhər</label>
+                  <select name="book_city" id="book_city" class="form-control" >
+                    <option value="1">A</option>
+                    <option value="2">B</option>
+                    <option value="3">C</option>
+                    <option value="4">D</option>
+                  </select>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <label class="font-weight-bold" for="book_year">Kitabın ili</label>
+                  <input type="number" min="1" max="2018" class="form-control" id="book_year" name="book_year" placeholder="1900">
+                </div>
+              </div>        
 
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                     <label class="font-weight-bold" for="aboutBook">Kitab haqqında</label>
-                  <textarea name="" class="form-control" id="aboutBook" cols="30" rows="5"></textarea>
+                  <textarea name="book_desc" class="form-control" id="aboutBook" cols="30" rows="5"></textarea>
                 </div>
               </div>
+
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                    <label class="font-weight-bold" for="book_pref">Üstünlüklər</label>
+                  <textarea name="book_pref" class="form-control" id="book_pref" cols="30" rows="5"></textarea>
+                </div>
+              </div>
+
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="photo">Kitabın fotosu</label>
-                  <input type="file" id="photo">
+                  <input type="file" id="photo" name="book_photo" accept="image/*">
                 </div>
               </div>
+
               <div class="row form-group">
                 <div class="col-md-12">
                   <input type="submit" value="Paylaş" class="btn btn-primary  py-2 px-5">
