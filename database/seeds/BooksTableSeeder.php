@@ -17,7 +17,10 @@ class BooksTableSeeder extends Seeder
     {
         $faker = Faker::create();
         DB::table('books')->truncate();
-        $i = 1;
+        $count = 1;
+        $images = [
+            'https://www.thebookdesigner.com/wp-content/uploads/2018/09/last-good-300.png',
+        ];
 
     	foreach(range(1,30) as $index) {
 	        DB::table('books')->insert([
@@ -36,9 +39,11 @@ class BooksTableSeeder extends Seeder
 	            'updated_at' => Carbon::now(),
             ]);
 
-            // DB::table('images')->insert(
-
-            // )
+            // DB::table('images')->insert([
+            //     'user_id' => $count,
+	        //     'created_at' => Carbon::now(),
+	        //     'updated_at' => Carbon::now(),
+            // ])
 
             // $i++;
         }

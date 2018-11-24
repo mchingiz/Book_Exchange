@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $books = Book::all();
+
+        $images = [
+            'img/books/4.png',
+            'img/books/4.gif',
+            'img/books/3.jpg',
+            'img/books/1.jpg',
+            'img/books/5.gif'
+        ];
+
+        foreach($books as $index => $book){
+            $book->image = $images[$index%5];
+        }
+
+        return view('index',compact('books'));
     }
 }
