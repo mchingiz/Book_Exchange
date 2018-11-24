@@ -227,6 +227,7 @@
 
   <script src="/js/main.js"></script>
   <script src="/js/book-card.js"></script>
+     @yield('scripts')
   <script src="js/closeBox.js"></script>
 
   </body>

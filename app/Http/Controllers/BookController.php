@@ -116,7 +116,7 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
 
-        return view('backEnd.book.books.show', compact('book'));
+        return view('single_book',compact('book'));
     }
 
     /**
@@ -171,7 +171,8 @@ class BookController extends Controller
         return redirect('books');
     }
 
-    public function test(){
-        return view('contact');
+    public function test($id){
+        $book = Book::findOrFail($id);
+        return view('single_book',compact('book'));
     }
 }
