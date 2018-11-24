@@ -4,7 +4,7 @@
     <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="userId" content="{{Auth::user()->id}}">
+    
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,13 +43,13 @@
       <div class="container">
         <div class="row align-items-center">          
           <div class="col-6 col-xl-2">
-              <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">Kitab<strong class="logoColor">Tap</strong></a></h1>
+              <h1 class="mb-0"><a href="/home" class="text-black h2 mb-0">Kitab<strong class="logoColor">Tap</strong></a></h1>
           </div>
           <div class="col-10 col-xl-10 d-none d-xl-block">
             <nav class="site-navigation text-right" role="navigation">
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active"><a href="index.html">Əsas səhifə</a></li>
+                <li class="active"><a href="/home">Əsas səhifə</a></li>
                 <li class="has-children">
                   <a href="category.html">Kitablar</a>
                   <ul class="dropdown">
@@ -58,13 +58,22 @@
                     <li><a href="#">Jurnal və qəzet</a></li>
                   </ul>
                 </li>
-                <li><a href="about.html">Haqqımızda</a></li>
-                <li><a href="contact.html">Əlaqə</a></li>
+                <li><a href="/about">Haqqımızda</a></li>
+                <li><a href="/contact">Əlaqə</a></li>
                 @guest
                 <li><a href="{{ route('login') }}">Daxil ol</a></li>
 
                 @else
                 <li><a href="{{ route('user_profile',Auth::user() ) }}">{{ strtoupper(Auth::user()->name) }}</a></li>
+                <li>
+                  <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                         Çıxış
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                </form>
+                </li>
                 <li><a href="{{ route('add_book') }}"><span class="rounded bg-primary py-2 px-3 text-white"><span class="h5 mr-2">+</span> Kitab əlavə et</span></a></li>
                 @endguest
 
@@ -133,7 +142,7 @@
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
             <p>
-            Copyright &copy; <script>document.write(new Date().getFullYear());</script> Bütün hüquqları qorunur |<i class="icon-triangle text-danger" aria-hidden="true"></i> by Lebron James
+            Copyright &copy; <script>document.write(new Date().getFullYear());</script> Bütün hüquqları qorunur |<i class="icon-triangle text-danger" aria-hidden="true"></i> by Kitabtap
             </p>
           </div>
           

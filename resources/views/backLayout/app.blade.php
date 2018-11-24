@@ -25,18 +25,15 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="#">CRUD App</a>
+	            <a class="navbar-brand" href="/">Book Exchange</a>
 	        </div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}">Login</a></li>
-						<li><a href="{{ url('/auth/register') }}">Register</a></li>
-					@else
+					
 						<li><a href="#">{{ Auth::user()->name }}</a></li>
 						<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
-					@endif
+				
 				</ul>
 			</div>
 
@@ -50,7 +47,7 @@
 	<hr/>
 
 	<div class="container">
-	    &copy; {{ date('Y') }}. Created by <a href="http://www.rolandalla.com">Roland Alla</a>
+
 	    <br/>
 	</div>
 

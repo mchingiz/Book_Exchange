@@ -15,8 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::get('/about', function () {
+    return view('about');
+});
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::resource('admin/categories', 'CategoryController');
 // Route::resource('admin/books', 'BookController');
@@ -38,4 +45,6 @@ Route::get('/test', 'BookController@test');
 Route::get('chat', function () {
     return view('chat');
 });
-Route::get('/book/{id}', 'BookController@show');
+Route::get('/book/{id}', 'BookController@show')->name("show_book");
+
+Route::post('/{id}/delete','BookController@destroy')->name('delete');

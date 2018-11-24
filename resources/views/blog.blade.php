@@ -5,12 +5,13 @@
 @endsection
 
 @section('content')
-    <div class="unit-5 overlay" style="background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1fd72b80aa0b43f74015163c2ad6fcc5&w=1000&q=80');">
-      <div class="container text-center">
-        <h2 class="mb-0">Blog</h2>
-        <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Blog</span></p>
+      <div class="unit-6 overlayrel overlay" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=31b0b078f5da0a750f05e27c6d9df39b&w=1000&q=80');">
+        <div class="overlayBox"></div>
+        <div class="text-center breads">
+          <h2 class="mb-0">Əlaqə</h2>
+          <p class="mb-0 unit-6"><a href="index.html">Əsas səhifə</a> <span class="sep">&gt;</span> <span>Əlaqə</span></p>
+        </div>
       </div>
-    </div>
 
     
     

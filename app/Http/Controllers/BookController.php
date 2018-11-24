@@ -168,7 +168,7 @@ class BookController extends Controller
         Session::flash('message', 'Book deleted!');
         Session::flash('status', 'success');
 
-        return redirect('books');
+        return redirect()->back();
     }
 
     public function test($id){

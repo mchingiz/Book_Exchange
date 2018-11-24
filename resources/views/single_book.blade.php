@@ -19,7 +19,7 @@
             <div class="col-lg-4">                        
                 <div class="p-4 mb-3 bg-white">
                   <h3 class="h5 text-black mb-3">Kitabın fotosu</h3>
-                  <img style="width: 100%" src="/img/books/1.jpg"/>
+                  <img style="width: 100%" src="/Upload/book/{{isset($book->image[0]) ? $book->image[0]->source : ''}}"/>
                 </div>
               </div>  
           <div class="col-md-12 col-lg-8 mb-5">          
@@ -86,13 +86,13 @@
     </div>
     <div class="comments">
         
-
+@if( is_array($book->offers))
         @foreach($book->offers as $offer)
        
 
-          <div class="comment-wrap" ">
+          <div class="comment-wrap">
               <div class="photo">
-                  <div class="avatar" style="background-image: url('{{$offer->offered_book->user->image}}')"></div>
+                  <div class="avatar" style="background-image: url('')"></div>
               </div>
               <div class="comment-block" >
                   <p class="comment-text">{{$offer->offered_book->author}} - {{ $offer->offered_book->name}}
@@ -116,6 +116,7 @@
               </div>
           </div>
         @endforeach
+        @endif
     </div>
 @endsection
 
