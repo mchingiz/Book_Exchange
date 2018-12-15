@@ -1,15 +1,19 @@
 @extends('layouts.layout')
 
 @section('title')
-    Blog
+    Edit book
 @endsection
 
 @section('content')
-  <div class="unit-6 overlayrel overlay" style="background-image: url('img/shelf.jpg');">
+  <div class="unit-6 overlayrel overlay" style="background-image: url( {{asset('img/shelf.jpg')}}";>
     <div class="overlayBox"></div>
     <div class="text-center breads">
-      <h2 class="mb-0">Kitab əlavə et</h2>
-      <p class="mb-0 unit-6"><a href="index.html">Əsas səhifə</a> <span class="sep">></span> <span>Kitab əlavə et</span></p>
+      <h2 class="mb-0">Kitabı redaktə et</h2>
+      <p class="mb-0 unit-6">
+        <a href="{{ route('home') }}">Əsas səhifə</a> <span class="sep">></span> 
+        <span>Kitab</span> <span class="sep">></span> 
+        <a href="{{ route('show_book',$book) }}">{{ $book->name }} </a> <span class="sep">></span> 
+        Redaktə et</p>
     </div>
   </div>  
 
@@ -36,18 +40,18 @@
           @endif
 
         
-          <form action="{{route('store_book')}}" method="post" enctype="multipart/form-data" class="p-5 bg-white">
+          <form action="{{route('update_book',$book)}}" method="post" enctype="multipart/form-data" class="p-5 bg-white">
 
             {{ csrf_field() }}
 
             <div class="row form-group">
               <div class="col-md-6 mb-3 mb-md-0">
                 <label class="font-weight-bold" for="bookname">Kitabın adı</label>
-                <input type="text" id="bookname" name="book_name" class="form-control" placeholder="məs: 451 Farenheit" >
+                <input type="text" id="bookname" name="book_name" class="form-control" placeholder="məs: 451 Farenheit" value="{{ $book->name }}">
               </div>
               <div class="col-md-6 mb-3 mb-md-0">
                 <label class="font-weight-bold" for="author">Müəllif</label>
-                <input type="text" id="author" name="book_author" class="form-control" placeholder="məs: Ray Bradbury" >
+                <input type="text" id="author" name="book_author" class="form-control" placeholder="məs: Ray Bradbury" value="{{ $book->author }}">
               </div>
             </div>  
 
@@ -56,7 +60,7 @@
                 <label class="font-weight-bold" for="book_cat">Kitabın kategoriyası</label>
                 <select name="book_cat" id="book_cat" class="form-control" >
                   @foreach($categories as $cat)
-                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                    <option value="{{ $cat->id }}" {{ $cat == $book->category ? 'selected' : '' }}>{{ $cat->name }}</option>
                   @endforeach
 
                 </select>
@@ -66,7 +70,7 @@
                 <label class="font-weight-bold" for="book_condition">Kitabın vəziyyəti</label>
                 <select name="book_condition" id="book_condition" class="form-control" >
                   @foreach($conditions as $c)
-                    <option value="{{$c}}">{{$c}}</option>
+                    <option value="{{$c}}" {{ $c == $book->condition ? 'selected' : '' }}>{{$c}}</option>
                   @endforeach
 
                 </select>
@@ -78,33 +82,36 @@
                 <label class="font-weight-bold" for="book_city">Şəhər</label>
                 <select name="book_city" id="book_city" class="form-control" >
                   @foreach($cities as $c)
-                    <option value="{{$c->id}}">{{ $c->name }}</option>
+                    <option value="{{$c->id}}" {{ $c == $book->city ? 'selected' : '' }}>{{ $c->name }}</option>
                   @endforeach
                 </select>
               </div>
               <div class="col-md-4 mb-3 mb-md-0">
                 <label class="font-weight-bold" for="book_year">Kitabın ili</label>
-                <input type="number" min="1500" max="2018" class="form-control" id="book_year" name="book_year" value="1500" >
+                <input type="number" min="1500" max="2018" class="form-control" id="book_year" name="book_year" value="{{ $book->year }}" >
               </div>
             </div>        
 
             <div class="row form-group">
               <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="aboutBook">Kitab haqqında</label>
-                <textarea name="book_desc" class="form-control" id="aboutBook" cols="30" rows="5" ></textarea>
+                <textarea name="book_desc" class="form-control" id="aboutBook" cols="30" rows="5" >{{ $book->description }}</textarea>
               </div>
             </div>
 
             <div class="row form-group">
               <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="book_pref">Üstünlüklər</label>
-                <textarea name="book_pref" class="form-control" id="book_pref" cols="30" rows="5" ></textarea>
+                <textarea name="book_pref" class="form-control" id="book_pref" cols="30" rows="5" >{{ $book->exchange_preferences }}</textarea>
               </div>
             </div>
 
             <div class="row form-group">
               <div class="col-md-6 mb-3 mb-md-0">
                 <label class="font-weight-bold" for="photo">Kitabın fotosu</label>
+                <img src="{{ asset('/Upload/book/' . $book->image->first()->source) }}" alt="" width="200" >
+                <br>
+                <br>
                 <input type="file" id="photo" name="book_photo" accept="image/*" >
               </div>
             </div>

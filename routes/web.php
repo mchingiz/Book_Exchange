@@ -46,9 +46,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']],function(){
 	Route::get('/book/add','BookController@create')->name('add_book');
 	Route::post('/store','BookController@store')->name('store_book');
-	Route::get('/{user}/profile','BookController@profile')->name('user_profile');
 
-} );
+	Route::get('/book/{book}/edit','BookController@edit')->name('edit_book');
+  
+	Route::post('/{book}/edit','BookController@update')->name('update_book');
+
+	Route::get('/{user}/profile','UserController@profile')->name('user_profile');
+
+	Route::post('/{book}/delete','BookController@delete')->name('delete_book');
+
+	Route::get('/{user}/profile/edit','UserController@edit')->name('edit_profile');
+
+});
 
 
 Route::resource('admin/categories', 'CategoryController');
@@ -59,6 +68,6 @@ Route::get('/test', 'BookController@test');
 Route::get('chat', function () {
     return view('chat');
 });
-Route::get('/book/{id}', 'BookController@show')->name("show_book");
 
-Route::post('/{id}/delete','BookController@destroy')->name('delete');
+
+Route::get('/book/{book}', 'BookController@show')->name("show_book");

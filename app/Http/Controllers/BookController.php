@@ -100,11 +100,6 @@ class BookController extends Controller
         return redirect()->back();
     }
 
-    public function profile(User $user){
-
-        return view('profile',compact('user'));
-    }
-
     /**
      * Display the specified resource.
      *
@@ -112,9 +107,8 @@ class BookController extends Controller
      *
      * @return Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
-        $book = Book::findOrFail($id);
 
         return view('single_book',compact('book'));
     }
@@ -126,11 +120,15 @@ class BookController extends Controller
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
-        $book = Book::findOrFail($id);
 
-        return view('backEnd.book.books.edit', compact('book'));
+        $conditions = ["Əla","Yaxşı","Orta","Pis","Bərbad"];
+
+        $categories = Category::all();
+
+        $cities = City::all();
+        return view('book.editBook', compact('book','categories','conditions','cities'));
     }
 
     /**
@@ -140,16 +138,57 @@ class BookController extends Controller
      *
      * @return Response
      */
-    public function update($id, Request $request)
+    public function update(Book $book, Request $request)
     {
         
-        $book = Book::findOrFail($id);
-        $book->update($request->all());
+        $this->validate($request,[
+            'book_name' => 'required',
+            'book_author' => 'required',
+            'book_desc' => 'required|',
+        ]);
+
+        if($request->hasFile('book_photo')){
+            $image = $book->image->first();
+
+            $book_photo = Carbon::now()->toDateString() . '_' . request('book_photo')->getClientOriginalName();
+            $folder = public_path() . '\Upload\book\\';
+
+            \File::delete($folder . $image->source);
+
+            request('book_photo')->move($folder, $book_photo);
+        }
+
+        if(auth()->check()){
+            $book_pref = request('book_pref');
+
+            if(strlen(request('book_pref')) == 0){
+                $book_pref= "";
+            }
+
+            $book->update([
+                'category_id' => request('book_cat'),
+                'city_id' => request('book_city'),
+                'author' => request('book_author'),
+                'name' => request('book_name'),
+                'description' => request('book_desc'),
+                'condition' => request('book_condition'),
+                'year' => request('book_year'),
+                'exchange_preferences' => $book_pref,
+                'exchange_status' => '0',
+                'view' => 0
+            ]);
+
+            if($request->hasFile('book_photo')){
+                $image->update([
+                    'source' => $book_photo
+                ]);
+            }
+        }
 
         Session::flash('message', 'Book updated!');
         Session::flash('status', 'success');
 
-        return redirect('books');
+        return redirect()->back();
     }
 
     /**
@@ -159,10 +198,8 @@ class BookController extends Controller
      *
      * @return Response
      */
-    public function destroy($id)
+    public function delete(Book $book)
     {
-        $book = Book::findOrFail($id);
-
         $book->delete();
 
         Session::flash('message', 'Book deleted!');
