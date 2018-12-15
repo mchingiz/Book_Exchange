@@ -4,6 +4,7 @@
     <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @yield('metatags')
     
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"> 
@@ -25,6 +26,7 @@
     <link rel="stylesheet" href="/css/comments.css">
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/chat.css"/>
     
   </head>
   <body>
@@ -239,7 +241,9 @@
   <script src="/js/main.js"></script>
   <script src="/js/book-card.js"></script>
      @yield('scripts')
-  <script src="js/closeBox.js"></script>
+  <script src="/js/closeBox.js"></script>
+  <script src="/js/socket_client.min.js"></script>
+  <script src="/js/chat_client.js"></script>
 
   </body>
 </html>
