@@ -15,30 +15,30 @@ Kitabtap - index
                 <li class="nav-item">
                   <a class="nav-link active py-3" style="color:white;" data-toggle="pill" href="#pills-job" role="tab" aria-controls="pills-job" aria-selected="true">Kİtab tap</a>
                 </li>
-                <li class="nav-item">
+<!--                 <li class="nav-item">
                   <a class="nav-link py-3" style="color:white;" data-toggle="pill" href="#pills-candidate" role="tab" aria-controls="pills-candidate" aria-selected="false">İstİfadəçİ tap</a>
-                </li>
+                </li> -->
               </ul>
               <div class="tab-content bg-white p-4 rounded" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-job" role="tabpanel" aria-labelledby="pills-job-tab">
                   <form action="#" method="post">
                     <div class="row">
-                      <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                      <div class="col-md-6 col-lg-9 mb-3 mb-lg-0">
                         <input type="text" class="form-control" placeholder="məs: 451 Farenheit">
                       </div>
-                      <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                      <!-- <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
                         <input type="text" class="form-control" placeholder="məs: Elmi-fantastik">                      
-                      </div>
-                      <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                      </div> -->
+                      <!-- <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
                         <input type="text" class="form-control form-control-block search-input" id="autocomplete" placeholder="Şəhər" onFocus="geolocate()">
-                      </div>
+                      </div> -->
                       <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
                         <input type="submit" class="btn btn-primary btn-block" value="Axtar">
                       </div>
                     </div>
                   </form>
                 </div>
-                <div class="tab-pane fade" id="pills-candidate" role="tabpanel" aria-labelledby="pills-candidate-tab">
+                <!-- <div class="tab-pane fade" id="pills-candidate" role="tabpanel" aria-labelledby="pills-candidate-tab">
                   <form action="#" method="post">
                     <div class="row">
                       <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
@@ -60,7 +60,7 @@ Kitabtap - index
                         <input type="submit" class="btn btn-primary btn-block" value="Axtar">
                       </div>
                     </div>
-                  </form>
+                  </form> -->
                 </div>
               </div>
             </div>
