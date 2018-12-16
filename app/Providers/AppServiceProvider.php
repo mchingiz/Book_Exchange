@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Category;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Laravel\Dusk\DuskServiceProvider;
@@ -15,11 +16,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+
+        view()->composer('*',function($view){
+
+            $categories = Category::all();
+
+            return $view->with(['categories' => $categories]);
+
+        });
+
         Schema::defaultStringLength(191);
     }
 
-    /**
-     * Register any application services.
+    /**categories
+ => $categories     * Register any application services.
      *
      * @return void
      */

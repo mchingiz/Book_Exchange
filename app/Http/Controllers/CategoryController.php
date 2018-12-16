@@ -14,7 +14,7 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show_category');
     }
 
     /**
@@ -119,6 +119,11 @@ class CategoryController extends Controller
         Session::flash('status', 'success');
 
         return redirect('admin/categories');
+    }
+
+    public function show_category(Category $category){
+
+        return view('category', compact('category'));
     }
 
 }

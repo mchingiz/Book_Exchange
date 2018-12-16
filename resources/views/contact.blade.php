@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="unit-6 overlayrel overlay" style="background-image: url('img/shelf.jpg');">
+    <div class="unit-6 overlayrel overlay" style="background-image: url('/img/shelf.jpg');">
         <div class="overlayBox"></div>
         <div class="text-center breads">
           <h2 class="mb-0">Əlaqə</h2>

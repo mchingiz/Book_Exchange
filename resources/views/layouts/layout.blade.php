@@ -56,9 +56,11 @@
                 <li class="has-children">
                   <a href="category.html">Kitablar</a>
                   <ul class="dropdown">
-                    <li><a href="#">Bədii</a></li>
-                    <li><a href="#">Təhsil</a></li>
-                    <li><a href="#">Jurnal və qəzet</a></li>
+                    @foreach($categories as $c)
+                      <li>
+                        <a href="{{ route('category',$c) }}">{{ $c->name }}</a>
+                      </li>
+                    @endforeach
                   </ul>
                 </li>
                 <li><a href="/about">Haqqımızda</a></li>
@@ -100,17 +102,23 @@
               <div class="col-6 col-md-4 col-lg-4 mb-5 mb-lg-0">
                 <h3 class="footer-heading mb-4">İstifadəçilər</h3>
                 <ul class="list-unstyled">
-                  <li><a href="">Daxil ol</a></li>
-                  <li><a href="#">Qeydiyyatdan keç</a></li>
-                  <li><a href="#">Profilim</a></li>
+                  @guest
+                    <li><a href="{{ route('login') }}">Daxil ol</a></li>
+                    <li><a href="{{ route('register') }}">Qeydiyyatdan keç</a></li>
+                  @else
+                    <li><a href="{{ route('user_profile', auth()->user()) }}">Profilim</a></li>
+
+                  @endguest
                 </ul>
               </div>
               <div class="col-6 col-md-4 col-lg-4 mb-5 mb-lg-0">
                 <h3 class="footer-heading mb-4">Kitablar</h3>
                 <ul class="list-unstyled">
-                  <li><a href="#">Bədii ədəbiyyat</a></li>
-                  <li><a href="#">Təhsil və elmi</a></li>
-                  <li><a href="#">Jurnal və qəzet</a></li>
+                  @foreach($categories as $c)
+                      <li>
+                        <a href="{{ route('category',$c) }}">{{ $c->name }}</a>
+                      </li>
+                    @endforeach
                 </ul>
               </div>
               <div class="col-6 col-md-4 col-lg-4 mb-5 mb-lg-0">
