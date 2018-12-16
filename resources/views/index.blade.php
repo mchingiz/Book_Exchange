@@ -21,10 +21,10 @@ Kitabtap - index
               </ul>
               <div class="tab-content bg-white p-4 rounded" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-job" role="tabpanel" aria-labelledby="pills-job-tab">
-                  <form action="#" method="post">
+                  <form action="{{ route('search_result') }}" method="get">
                     <div class="row">
                       <div class="col-md-6 col-lg-9 mb-3 mb-lg-0">
-                        <input type="text" class="form-control" placeholder="məs: 451 Farenheit">
+                        <input type="text" name="search_string" class="form-control" placeholder="məs: 451 Farenheit">
                       </div>
                       <!-- <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
                         <input type="text" class="form-control" placeholder="məs: Elmi-fantastik">                      
@@ -76,9 +76,6 @@ Kitabtap - index
           <div class="col-md-9" data-aos="fade">
             <h2 class="font-weight-bold text-black">Ən son əlavə olunanlar</h2>
           </div>
-          <div class="col-md-3" data-aos="fade" data-aos-delay="200">
-            <a href="new-post.html" class="btn btn-primary py-2 btn-block"><span class="h5">+</span> Kitab əlavə et</a>
-          </div>
         </div>
         <div class="row book-shelf">
             <section class="container">
@@ -95,25 +92,22 @@ Kitabtap - index
                               </h2>
                               <div class="mc-content">
                                   <div class="img-container">
-                                      <img class="img-responsive" src="{{ $book->image }}">
+                                      <img class="img-responsive" src="{{ $book->image }}" height="100%">
                                   </div>
                                   <div class="mc-description">
                                       {{ $book->description }}
                                   </div>
-                                  <a href="#">  
-                                      <h4>
-                                        Ətraflı
-                                        </h4>
-                                      </a>
+                                  <a href="{{ route('show_book',$book)  }}">  
+                                      <h4>Ətraflı</h4>
+                                  </a>
                               </div>
                               <a class="mc-btn-action">
                                   <i class="fa fa-bars"></i>
                               </a>
                               <div class="mc-footer">
                                 <div class="book-tags">
-                                    <!-- <h5><a href="#">#Elmi-fantastik</a></h5>
-                                    <h5><a href="#">#Roman</a></h5> -->
-                              </div>
+                                    <h5><a href="#">{{ $book->category->name }}</a></h5>
+                                </div>
                               </div>
                           </article>
                       </div>
@@ -122,21 +116,15 @@ Kitabtap - index
             </section>
             
         </div>
+
         <div class="row mt-5">
           <div class="col-md-12 text-center">
-            <div class="site-block-27">
-              <ul>
-                <li><a href="#"><i class="icon-keyboard_arrow_left h5"></i></a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#"><i class="icon-keyboard_arrow_right h5"></i></a></li>
-              </ul>
+            <div class="site-block-27 custom_pagination">
+              {{ $books->links() }}
             </div>
           </div>
         </div>
+
       </div>
     </div>       
 

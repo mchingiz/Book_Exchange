@@ -56,3 +56,7 @@ Route::get('chat', function () {
 
 
 Route::get('/book/{book}', 'BookController@show')->name("show_book");
+
+Route::get('/search','SearchController@result')->name('search_result');
+
+Route::get('/category/{category}', 'CategoryController@show_category')->name('category');

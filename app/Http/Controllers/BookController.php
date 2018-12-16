@@ -110,7 +110,7 @@ class BookController extends Controller
     public function show(Book $book)
     {
 
-        return view('single_book',compact('book'));
+        return view('book.single_book',compact('book'));
     }
 
     /**
@@ -201,6 +201,8 @@ class BookController extends Controller
     public function delete(Book $book)
     {
         $book->delete();
+
+        File::delete(public_path() . '\Upload\book\\' . $book->image->first()->source);
 
         Session::flash('message', 'Book deleted!');
         Session::flash('status', 'success');
