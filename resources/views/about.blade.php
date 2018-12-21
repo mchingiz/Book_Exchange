@@ -40,67 +40,13 @@
     </div>
     <!-- END section -->
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center">
-            <h2 class="font-weight-bold text-black" data-aos="fade">Our Team</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum magnam illum maiores adipisci pariatur, eveniet.</p>
-          </div>
-        </div>
-        <div class="row top-destination">
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade">
-            <a href="#" class="place">
-              <img src="images/person_1.jpg" alt="Image placeholder">
-              <h2>Michelle Megan</h2>
-              <p>CEO, Co-founder</p>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade">
-            <a href="#" class="place">
-              <img src="images/person_2.jpg" alt="Image placeholder">
-              <h2>Mike Stellar</h2>
-              <p>CTO Co-founder</p>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade">
-            <a href="#" class="place">
-              <img src="images/person_3.jpg" alt="Image placeholder">
-              <h2>Gregg White</h2>
-              <p>VP Producer</p>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade">
-            <a href="#" class="place">
-              <img src="images/person_4.jpg" alt="Image placeholder">
-              <h2>Rogie Knitt</h2>
-              <p>Project Manager</p>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade">
-            <a href="#" class="place">
-              <img src="images/person_1.jpg" alt="Image placeholder">
-              <h2>Ben Koh</h2>
-              <p>Project Manager</p>
-            </a>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12" data-aos="fade">
-            <a href="#" class="place">
-              <img src="images/person_2.jpg" alt="Image placeholder">
-              <h2>Chris Stanworth</h2>
-              <p>Product Designer</p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END section -->
+    
 
     <div class="site-section border-top">
       <div class="container">
         <div class="row justify-content-center text-center mb-5">
           <div class="col-md-6" data-aos="fade" >
-            <h2 class="text-black">Why Job<strong>start</strong> </h2>
+            <h2 class="text-black">Why Kitab<strong>Tap</strong> </h2>
           </div>
         </div>
         <div class="row hosting">
@@ -114,7 +60,7 @@
                     <path fill-rule="evenodd" stroke-width="2px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M29.000,66.000 L1.012,49.750 L1.012,17.250 L29.000,1.000 L56.988,17.250 L56.988,49.750 L29.000,66.000 Z"></path>
                   </svg><span class="unit-3-icon icon fl-bigmug-line-portfolio23"></span>
                 </div>
-                <h2 class="h5">Search Millions of Jobs</h2>
+                <h2 class="h5">Search Millions of Books</h2>
               </div>
               <div class="unit-3-body">
                 <p>Lorem ipsum dolor sit amet consectetur is a nice adipisicing elita ssumenda a similique perferendis dolorem eos.</p>
@@ -150,7 +96,7 @@
                     <path fill-rule="evenodd" stroke-width="2px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M29.000,66.000 L1.012,49.750 L1.012,17.250 L29.000,1.000 L56.988,17.250 L56.988,49.750 L29.000,66.000 Z"></path>
                   </svg><span class="unit-3-icon icon fl-bigmug-line-airplane86"></span>
                 </div>
-                <h2 class="h5">Top Careers</h2>
+                <h2 class="h5">Most reads</h2>
               </div>
               <div class="unit-3-body">
                 <p>Lorem ipsum dolor sit amet consectetur is a nice adipisicing elita ssumenda a similique perferendis dolorem eos.</p>
@@ -169,7 +115,7 @@
                     <path fill-rule="evenodd" stroke-width="2px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M29.000,66.000 L1.012,49.750 L1.012,17.250 L29.000,1.000 L56.988,17.250 L56.988,49.750 L29.000,66.000 Z"></path>
                   </svg><span class="unit-3-icon icon fl-bigmug-line-user144"></span>
                 </div>
-                <h2 class="h5">Search Expert Candidates</h2>
+                <h2 class="h5">Search by category</h2>
               </div>
               <div class="unit-3-body">
                 <p>Lorem ipsum dolor sit amet consectetur is a nice adipisicing elita ssumenda a similique perferendis dolorem eos.</p>
@@ -187,7 +133,7 @@
                     <path fill-rule="evenodd" stroke-width="2px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M29.000,66.000 L1.012,49.750 L1.012,17.250 L29.000,1.000 L56.988,17.250 L56.988,49.750 L29.000,66.000 Z"></path>
                   </svg><span class="unit-3-icon icon fl-bigmug-line-clipboard68"></span>
                 </div>
-                <h2 class="h5">Easy To Manage Jobs</h2>
+                <h2 class="h5">Easy To Find a book</h2>
               </div>
               <div class="unit-3-body">
                 <p>Lorem ipsum dolor sit amet consectetur is a nice adipisicing elita ssumenda a similique perferendis dolorem eos.</p>
@@ -223,8 +169,8 @@
       <div class="container">
         <div class="row row-custom align-items-center">
           <div class="col-md-10">
-            <h1 class="mb-2 text-black w-75">Get 40% Less For <span class="font-weight-bold">New Employer</span> Job Posts</h1>
-            <p class="h3"><a href="#" class="btn btn-primary py-3 px-5">Post a Job</a></p>
+            <h1 class="mb-2 text-black w-75">Exchange <span class="font-weight-bold">Your books</span> with new ones! </h1>
+            <p class="h3"><a href="#" class="btn btn-primary py-3 px-5">Exchange</a></p>
           </div>
         </div>
       </div>

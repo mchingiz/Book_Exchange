@@ -86,7 +86,7 @@
     </div>
     <div class="comments">
         
-@if( is_array($book->offers))
+
         @foreach($book->offers as $offer)
        
 
@@ -116,7 +116,7 @@
               </div>
           </div>
         @endforeach
-        @endif
+  
     </div>
 @endsection
 
