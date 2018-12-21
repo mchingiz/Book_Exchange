@@ -20,6 +20,6 @@ class UserController extends Controller
 
     public function chat(User $user){
 
-    	return view('user.chat', compact('user'));
+        return view('chat', compact('user'));
     }
 }

@@ -177,8 +177,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-        Laravel\Dusk\DuskServiceProvider::class,
 
 
         Roland\Crud\CrudServiceProvider::class,

@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="/css/comments.css">
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/profile.css">
-    <link rel="stylesheet" href="/css/chat.css">
     
   </head>
   <body>
@@ -57,10 +56,7 @@
                   <ul class="dropdown">
                     @foreach($categories as $c)
                       <li>
-                        @if($c->count())
-                          <a href="{{ route('category',$c) }}">{{ $c->name }}</a>
-
-                        @endif
+                        <a href="{{ route('category',$c) }}">{{ $c->name }}</a>
                       </li>
                     @endforeach
                   </ul>
@@ -118,10 +114,7 @@
                 <ul class="list-unstyled">
                   @foreach($categories as $c)
                       <li>
-                        @if($c->count())
-                          <a href="{{ route('category',$c) }}">{{ $c->name }}</a>
-
-                        @endif
+                        <a href="{{ route('category',$c) }}">{{ $c->name }}</a>
                       </li>
                     @endforeach
                 </ul>
