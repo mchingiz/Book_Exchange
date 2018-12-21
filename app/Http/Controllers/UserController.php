@@ -17,4 +17,9 @@ class UserController extends Controller
 
         return view('user.edit_profile', compact('user'));
     }
+
+    public function chat(User $user){
+
+    	return view('user.chat', compact('user'));
+    }
 }

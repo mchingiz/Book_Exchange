@@ -24,8 +24,12 @@
               <div class="profile-usertitle-name">{{ $user->name }}</div>
             </div>
             <div class="profile-userbuttons">
-              <button type="button" class="btn btn-warning btn-sm">Mesaj yaz</button>
-              <button type="button" class="btn btn-primary btn-sm"><a style="color: white; text-decoration: none;" href="{{ route('edit_profile', $user) }}">Profİlİ redaktə et</a></button>
+              <button type="button" class="btn btn-warning btn-sm">
+                <a style="color: white; text-decoration: none;" href="{{ route('chat', $user) }}">Mesaj yaz</a>
+              </button>
+              <button type="button" class="btn btn-primary btn-sm">
+                <a style="color: white; text-decoration: none;" href="{{ route('edit_profile', $user) }}">Profİlİ redaktə et</a>
+              </button>
             </div>
             <div class="profile-usermenu">
               <ul class="nav">

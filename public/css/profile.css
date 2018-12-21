@@ -145,3 +145,7 @@ body {
 .btn-warning{
   color: white !important;
 }
+
+.capitalize{
+  text-transform: capitalize;
+}

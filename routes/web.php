@@ -57,6 +57,8 @@ Route::group(['middleware' => ['auth']],function(){
 
 	Route::get('/{user}/profile/edit','UserController@edit')->name('edit_profile');
 
+	Route::get('/chat/{user}', 'UserController@chat')->name('chat');
+
 });
 
 
