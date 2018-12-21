@@ -1,57 +1,61 @@
 @extends('layouts.layout')
 
+@section('metatags')
+    <meta name="user_id" value="{{ $current_user_id }}">
+    <meta name="recieving_user_id" value="{{ $user->id }}">
+@endsection
+
 @section('title')
     'Single Book'
 @endsection
 
 @section('content')
 
-    <div class="comments">
-        <div class="comment-wrap">
-            <div class="photo">
-                <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg')"></div>
-            </div>
-            <div class="comment-block">
-                <form action="">
-                    <textarea name="" id="" cols="30" rows="3" placeholder="Şərhiniz və ya təklifiniz..."></textarea>
-                </form>
-            </div>          
-        </div>    
-        <div class="comment-wrap add-comment">
-        <div class="addComment">
-            <p class="mt-5"><a href="#" class="btn btn-primary py-2 px-4">Göndər</a></p>
+    <div class="unit-6 overlayrel overlay" style="background-image: url('img/shelf.jpg');">
+        <div class="overlayBox"></div>
+        <div class="text-center breads">
+          <h2 class="mb-0">Bəhruz Aydınlı</h2>
+          <p class="mb-0 unit-6"><a href="index.html">Əsas səhifə</a> <span class="sep">></span> <span>Mesajlarım</span> </p>
         </div>
       </div>
-        <div class="comment-wrap">
-            <div class="photo">
-                <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg')"></div>
+
+  <div class="container">
+    <div class="row profile">
+      
+      <div class="col-lg-12 col-md-12">
+
+
+           <div class="container">
+            <h3 style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid darkred;" class="text-left">{{ $user->name.' '.$user->surname }} ilə mesaj qutum</h3>
+            <div class="messaging">
+                  <div class="inbox_msg">
+                    <div class="mesgs">
+                      <div class="msg_history">
+                        <div class="incoming_msg template" style="display:none">
+                          <div class="received_msg">
+                            <div class="received_withd_msg">
+                              <p>Salam, zəhmət olmasa mənə haqqında elan yerləşdirdiyiniz "Kwai körpüsü" əsərinin vəziyyəti barədə məlumat verin.</p>
+                              <span class="time_date"> 11:01 | 10 Noy</span></div>
+                          </div>
+                        </div>
+                        <div class="outgoing_msg template" style="display:none">
+                          <div class="sent_msg">
+                            <p>Salam, kitab yenidir, heç oxunmayıb.</p>
+                            <span class="time_date"> 12:16 | 15 Noy</span> </div>
+                        </div>
+                      </div>
+                      <div class="type_msg">
+                        <div class="input_msg_write">
+                          <input type="text" class="write_msg" value="testMessage" onkeydown="sendIfEnter()" placeholder="Type a message" />
+                          <button class="msg_send_btn" type="button" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
-            <div class="comment-block">
-                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
-                    sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</p>
-                <div class="bottom-comment">
-                    <div class="comment-date">Noy 15, 2018 @ 12:35 </div>
-                    <ul class="comment-actions">
-                        <li class="complain">Şikayət et</li>
-                        <li class="reply">Cavabla</li>
-                    </ul>
-                </div>
-            </div>
-        </div>   
-        <div class="comment-wrap">
-            <div class="photo">
-                <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/felipenogs/128.jpg')"></div>
-            </div>
-            <div class="comment-block">
-                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam.</p>
-                <div class="bottom-comment">
-                    <div class="comment-date">Noy 16, 2018 @ 18:12 </div>
-                    <ul class="comment-actions">
-                        <li class="complain">Şikayət et</li>
-                        <li class="reply">Cavabla</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
+      </div>
     </div>
+  </div>
+  </div>
 @endsection

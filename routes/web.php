@@ -44,16 +44,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::resource('admin/books', 'BookController');
 
 Route::group(['middleware' => ['auth']],function(){
+	
 	Route::get('/book/add','BookController@create')->name('add_book');
 	Route::post('/store','BookController@store')->name('store_book');
-
 	Route::get('/book/{book}/edit','BookController@edit')->name('edit_book');
-  
 	Route::post('/{book}/edit','BookController@update')->name('update_book');
-
 	Route::post('/{book}/delete','BookController@delete')->name('delete_book');
 
+	Route::get('/{user}/profile','UserController@profile')->name('user_profile');
 	Route::get('/{user}/profile/edit','UserController@edit')->name('edit_profile');
+
+	Route::get('chat/{user}', 'ChatController@viewChat');
 
 });
 
@@ -65,8 +66,6 @@ Route::resource('admin/categories', 'CategoryController');
 Route::resource('admin/books', 'BookController');
 Route::resource('offer', 'OfferController');
 Route::get('/test', 'BookController@test');
-
-Route::get('chat/{user}', 'UserController@chat')->name('chat');
 
 Route::get('/book/{book}', 'BookController@show')->name("show_book");
 
