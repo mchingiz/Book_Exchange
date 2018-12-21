@@ -62,9 +62,9 @@ After all above steps are completed, we can move on to run the application
 1.1 Navigate to C:/xampp folder, find 'xampp-control' and run that program.
 1.2 Start 'Apache' and 'MySQL' services by clicking 'start' button in front of them. Ignore this step if they already run.
 
-2. Open 'Command Prompt' and navigate to C:/Book_Exchange
+2. Open 'Command Prompt' and run command 'cd C:/Book_Exchange'
 3. Run the command "php artisan serve" and do not close this window or stop the execution
-4. Open new 'Command Prompt' and navigate to C:/Book_Exchange
+4. Open new 'Command Prompt' and run command 'cd C:/Book_Exchange'
 5. Run the command "nodemon chat.js" and do not close this window or stop the execution
 
 Now the project is accesible at 'localhost:8000' address

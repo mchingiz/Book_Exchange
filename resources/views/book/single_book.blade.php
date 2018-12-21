@@ -59,7 +59,13 @@
     <div class="comments">
       @if(Auth::check())
 
-      <form action="/offer" method="POST">
+          @if(Session::get('status') == 'success')
+              <div class="alert alert-success">
+                {{ Session::get('message') }}
+              </div>
+            @endif
+            
+      <form action="{{ route('offer.store') }} " method="POST">
         {!! csrf_field() !!}
         <div class="comment-wrap">
             <div class="photo">
