@@ -8,7 +8,7 @@
     <div class="unit-6 overlayrel overlay" style="background-image: url('/img/shelf.jpg');">
       <div class="overlayBox"></div>
       <div class="text-center breads">
-        <h2 class="mb-0">{{ $user->name }}</h2>
+        <h2 class="mb-0" style="text-transform: capitalize;">{{ $user->name }} {{ $user->surname }}</h2>
         <p class="mb-0 unit-6"><a href="index.html">Əsas səhifə</a> <span class="sep">></span> <span>İstifadəçi</span> </p>
       </div>
     </div>
@@ -21,11 +21,19 @@
               <img src="/img/person1.jpg" class="img-responsive" alt="" />
             </div>
             <div class="profile-usertitle">
-              <div class="profile-usertitle-name">{{ $user->name }}</div>
+              <div class="profile-usertitle-name">{{ $user->name }} {{ $user->surname }}</div>
             </div>
             <div class="profile-userbuttons">
-              <button type="button" class="btn btn-warning btn-sm">Mesaj yaz</button>
-              <button type="button" class="btn btn-primary btn-sm"><a style="color: white; text-decoration: none;" href="{{ route('edit_profile', $user) }}">Profİlİ redaktə et</a></button>
+              @if(Auth::user() == $user)
+                <button type="button" class="btn btn-primary btn-sm"><a style="color: white; text-decoration: none;" href="{{ route('edit_profile', $user) }}">Profİlİ redaktə et</a></button>
+              @else
+
+                <button type="button" class="btn btn-warning btn-sm">
+                  <a style="color: white; text-decoration: none;" href="{{ route('chat', $user) }}">Mesaj Yaz</a>
+                </button>
+
+              @endif
+
             </div>
             <div class="profile-usermenu">
               <ul class="nav">
@@ -68,11 +76,13 @@
                       <td>{{ $book->year }}</td>
                       <th class="d-flex justify-content-between">
                           <a class="btn btn-warning" href="{{ route('show_book',$book) }}">Ətraflı</a>
-                          <a class="btn btn-primary" href="{{ route('edit_book',$book) }}">Redaktə et</a>
-                          <form action="{{route('delete_book',$book)}}" method="post">
-                            {{ csrf_field() }}
-                            <input type="submit" value="Sil" class="btn btn-danger">
-                          </form>
+                          @if(Auth::id() == $user->id)
+                            <a class="btn btn-primary" href="{{ route('edit_book',$book) }}">Redaktə et</a>
+                            <form action="{{route('delete_book',$book)}}" method="post">
+                              {{ csrf_field() }}
+                              <input type="submit" value="Sil" class="btn btn-danger">
+                            </form>
+                          @endif
                       </th>
                     </tr>
                   @endforeach

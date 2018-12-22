@@ -58,13 +58,14 @@ Route::group(['middleware' => ['auth']],function(){
 
 });
 
+Route::get('/{user}/profile','UserController@profile')->name('user_profile');
+
+
 
 Route::resource('admin/categories', 'CategoryController');
 Route::resource('admin/books', 'BookController');
 Route::resource('offer', 'OfferController');
 Route::get('/test', 'BookController@test');
-
-
 
 Route::get('/book/{book}', 'BookController@show')->name("show_book");
 
