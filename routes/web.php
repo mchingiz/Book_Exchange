@@ -51,14 +51,14 @@ Route::group(['middleware' => ['auth']],function(){
 	Route::post('/{book}/edit','BookController@update')->name('update_book');
 	Route::post('/{book}/delete','BookController@delete')->name('delete_book');
 
-	Route::get('/{user}/profile','UserController@profile')->name('user_profile');
+
 	Route::get('/{user}/profile/edit','UserController@edit')->name('edit_profile');
 
 	Route::get('chat/{user}', 'ChatController@viewChat');
 
 });
 
-
+Route::get('/{user}/profile','UserController@profile')->name('user_profile');
 Route::resource('admin/categories', 'CategoryController');
 Route::resource('admin/books', 'BookController');
 Route::resource('offer', 'OfferController');

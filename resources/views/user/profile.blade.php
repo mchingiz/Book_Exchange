@@ -68,11 +68,13 @@
                       <td>{{ $book->year }}</td>
                       <th class="d-flex justify-content-between">
                           <a class="btn btn-warning" href="{{ route('show_book',$book) }}">Ətraflı</a>
+                          @if(auth()->id() == $user->id)
                           <a class="btn btn-primary" href="{{ route('edit_book',$book) }}">Redaktə et</a>
                           <form action="{{route('delete_book',$book)}}" method="post">
                             {{ csrf_field() }}
                             <input type="submit" value="Sil" class="btn btn-danger">
                           </form>
+                          @endif
                       </th>
                     </tr>
                   @endforeach
