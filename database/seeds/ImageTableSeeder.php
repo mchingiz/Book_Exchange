@@ -1,13 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
-use Carbon\Carbon;
 
-class BooksTableSeeder extends Seeder
+class ImageTableSeeder extends Seeder
 {
-    public $conditions = ["Əla","Yaxşı","Orta","Pis","Bərbad"];
-
     /**
      * Run the database seeds.
      *
@@ -15,11 +11,12 @@ class BooksTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        
         DB::table('books')->truncate();
         DB::table('images')->truncate();
         $count = 1;
         
+
     	foreach(range(1,30) as $index) {
 	        DB::table('books')->insert([
                 'user_id' => $faker->numberBetween(1,10),
@@ -40,10 +37,11 @@ class BooksTableSeeder extends Seeder
             DB::table('images')->insert([
                 'book_id' => $index,
                 'source' => rand(1,10).'.jpg',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]);
-            
+	            'created_at' => Carbon::now(),
+	            'updated_at' => Carbon::now(),
+            ])
+
+            // $i++;
         }
     }
 }

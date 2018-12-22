@@ -54,7 +54,7 @@
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="/home">Əsas səhifə</a></li>
                 <li class="has-children">
-                  <a href="category.html">Kitablar</a>
+                  <a href="#">Kitablar</a>
                   <ul class="dropdown">
                     @foreach($categories as $c)
                       <li>

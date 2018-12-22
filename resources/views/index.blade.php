@@ -82,17 +82,23 @@ Kitabtap - index
                 <div class="row active-with-click">
                     @foreach($books as $book)
                       <div class="col-md-4 col-sm-6 col-xs-12">
+
                           <article class="material-card Teal">
+                                <a href="{{ route('show_book',$book)  }}">  
                               <h2>
                                   <span>{{ $book->author }}</span>
-                                  <strong>
-                                      <i class="fa fa-fw fa-star"></i>
-                                      {{ $book->name }}
-                                  </strong>
+                              
+                                    <strong>
+                                        <i class="fa fa-fw fa-star"></i>
+                                        {{ $book->name }}
+                                    </strong>
+                                  
                               </h2>
+                              </a>
                               <div class="mc-content">
                                   <div class="img-container">
-                                      <img class="img-responsive" src="{{ $book->image }}" height="100%">
+                                      
+                                      <img class="img-responsive" src="/Upload/book/{{isset($book->image[0]) ? $book->image[0]->source : ''}}" height="100%" >
                                   </div>
                                   <div class="mc-description">
                                       {{ $book->description }}

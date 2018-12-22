@@ -98,6 +98,8 @@
     <div class="comments">
         
 
+
+
     <h1 style="margin-left: 50px;">Təkliflər</h1>
     @foreach($book->offers as $offer)
       <div class="comment-wrap">
@@ -124,8 +126,10 @@
                   </ul>
               </div>
           </div>
+
       </div>
     @endforeach
+
 
     </div>
 @endsection

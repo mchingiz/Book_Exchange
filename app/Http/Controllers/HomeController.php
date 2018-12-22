@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Category;
+use App\Image;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,19 +28,7 @@ class HomeController extends Controller
     {
         $books = Book::paginate(9);
 
-        $images = [
-            'img/books/4.png',
-            'img/books/4.gif',
-            'img/books/3.jpg',
-            'img/books/1.jpg',
-            'img/books/5.gif'
-        ];
-
-        foreach($books as $index => $book){
-            $book->image = $images[$index%5];
-        }
-
-
+        
         // $books = $books->paginate(6);
 
         return view('index',compact('books'));
